@@ -136,13 +136,19 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--core); outline-
 .timeline li.now .y { color: var(--open-ink); }
 
 /* numbers */
-.figures { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
-.figures div { padding: 22px 18px 0 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-.figures div + div { padding-left: 18px; border-left: 1px solid var(--line); }
-.figures .big { font-size: clamp(1.9rem, 3.6vw, 2.7rem); line-height: 1; font-weight: 500; font-variant-numeric: tabular-nums; }
-.figures small { color: var(--muted); font-size: 0.86rem; line-height: 1.55; }
 
 /* contact */
+/* connect */
+.connect-h { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+.qrs { display: grid; grid-template-columns: repeat(3, minmax(0, 180px)); gap: clamp(14px, 3vw, 32px); }
+.qr { margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.qr img { box-sizing: border-box; display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1; background: #FFFFFF; padding: 8px; border-radius: 14px; border: 1px solid var(--line); image-rendering: pixelated; }
+.qr a { display: block; border-radius: 14px; }
+.qr a:hover img { border-color: var(--core); }
+.qr figcaption { font-family: var(--mono); font-size: 0.86rem; color: var(--ink); letter-spacing: 0.04em; }
+.intro[data-lang="ja"] .qr.line { order: -1; }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.98rem; text-decoration: none; color: var(--on-deep); background: var(--deep); border-radius: 999px; padding: 11px 20px; }
+.btn:hover { background: var(--core-ink); }
 .contact { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
 .chip { font-family: var(--mono); font-size: 0.82rem; text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; color: var(--core-ink); background: var(--panel); }
 a.chip:hover { border-color: var(--core); }
@@ -153,8 +159,6 @@ a.chip:hover { border-color: var(--core); }
   .mapscroll svg { width: 680px; max-width: none; }
   .silkmap .swipe { display: inline; }
   .person { grid-template-columns: minmax(0, 1fr); }
-  .figures div { padding-right: 10px; }
-  .figures div + div { padding-left: 10px; }
   .portrait { width: 104px; }
   .brand { display: none; }
 }
@@ -271,21 +275,23 @@ a.chip:hover { border-color: var(--core); }
   </div>
 </section>
 
-<section class="band" id="numbers">
+<section class="band" id="connect">
   <div class="inner">
     <div class="head">
-      <p class="eyebrow"><span class="en">Our network in Japan</span><span class="zh">我们在日本的网络</span><span class="ja">日本でのつながり</span></p>
+      <p class="eyebrow"><span class="en">Contact</span><span class="zh">联系方式</span><span class="ja">連絡先</span></p>
+      <h2 class="connect-h"><span class="en">Let’s connect.</span><span class="zh">加个好友，聊一聊。</span><span class="ja">つながりましょう。</span></h2>
+      <p class="lead"><span class="en">Scan or tap. Talk to me directly.</span><span class="zh">扫码或点击，直接和我联系。</span><span class="ja">QRを読み取るか、タップして、直接ご連絡ください。</span></p>
     </div>
-    <div class="figures">
-      <div><span class="big">4</span><small><span class="en">bases: Bangkok, Yangon, Tokyo, Sapporo</span><span class="zh">个据点：曼谷、仰光、东京、札幌</span><span class="ja">拠点：バンコク・ヤンゴン・東京・札幌</span></small></div>
-      <div><span class="big">525</span><small><span class="en">workers sent to companies in Japan</span><span class="zh">名人才派往日本企业</span><span class="ja">人を日本の企業へ送り出し</span></small></div>
-      <div><span class="big">96</span><small><span class="en">client companies in 31 prefectures</span><span class="zh">家客户企业，遍布 31 个都道府县</span><span class="ja">社の取引先、31都道府県</span></small></div>
+    <div class="qrs">
+      <figure class="qr wechat"><a href="https://u.wechat.com/kFNc5WAS9Bz_emGzHcaXTLs?s=3" target="_blank" rel="noopener" aria-label="Add Yuhei Yamada on WeChat"><img src="img/qr-wechat.png" alt="Yuhei Yamada WeChat QR code" width="280" height="280"></a><figcaption>WeChat</figcaption></figure>
+      <figure class="qr line"><a href="https://line.me/ti/p/3qSev_mBDH" target="_blank" rel="noopener" aria-label="Add Yuhei Yamada on LINE"><img src="img/qr-line.png" alt="Yuhei Yamada LINE QR code" width="280" height="280"></a><figcaption>LINE</figcaption></figure>
+      <figure class="qr whatsapp"><a href="https://wa.me/qr/3CAPOUFNTLBNG1" target="_blank" rel="noopener" aria-label="Add Yuhei Yamada on WhatsApp"><img src="img/qr-whatsapp.png" alt="Yuhei Yamada WhatsApp QR code" width="280" height="280"></a><figcaption>WhatsApp</figcaption></figure>
     </div>
-    <p class="note"><span class="en">525 and 96 come from our workforce business (Myanmar → Japan), since 2019, as of July 2026. They are not trade sales.</span><span class="zh">525 和 96 来自我们的人才业务（缅甸 → 日本），2019年至2026年7月。并非贸易销售数据。</span><span class="ja">525と96は人材事業（ミャンマー→日本）の実績です。2019年〜2026年7月時点。貿易の販売実績ではありません。</span></p>
+    <p class="note"><span class="en">On a phone? Just tap the code.</span><span class="zh">用手机浏览？直接点击二维码。</span><span class="ja">スマホの場合は、QRをタップしてください。</span></p>
     <div class="contact">
+      <a class="btn" href="https://www.linkedin.com/in/yyasi/" target="_blank" rel="noopener"><span class="en">Connect on LinkedIn</span><span class="zh">在 LinkedIn 上联系</span><span class="ja">LinkedInでつながる</span> ↗</a>
       <span class="chip mail">yamada@bku1.com</span>
       <a class="chip" href="https://trade.bku1.com/" target="_blank" rel="noopener">trade.bku1.com ↗</a>
-      <a class="chip" href="https://www.linkedin.com/in/yyasi/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
   </div>
 </section>

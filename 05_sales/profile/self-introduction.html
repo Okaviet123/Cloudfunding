@@ -75,23 +75,27 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--core); outline-
 .langs button[data-l="ja"] { font-family: "Noto Sans JP", sans-serif; }
 .langs button[aria-pressed="true"] { background: var(--deep); color: var(--on-deep); }
 
-/* route strip: Japan → Europe */
-.route { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
-.st { position: relative; display: flex; flex-direction: column; gap: 4px; padding-right: 12px; min-width: 0; }
+/* route strip: Japan → Europe (Silk Road 2040) */
+.route { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.st { position: relative; display: flex; flex-direction: column; gap: 4px; padding-right: 10px; min-width: 0; }
 .st .dot { width: 16px; height: 16px; border-radius: 999px; background: var(--paper); border: 3px solid var(--next); position: relative; z-index: 1; margin-bottom: 10px; }
 .st::after { content: ""; position: absolute; top: 7px; left: 16px; right: 0; border-top: 2px dashed var(--next); }
 .st:last-child::after { display: none; }
-.st.core .dot { background: var(--core); border-color: var(--core); }
+.st.core .dot, .st.hub .dot { background: var(--core); border-color: var(--core); }
+.st.hub .dot { box-shadow: 0 0 0 5px color-mix(in srgb, var(--core) 24%, transparent); }
 .st.core::after { border-top: 2px solid var(--core); }
-.st.open .dot { background: var(--open); border-color: var(--open); }
-.st.open::after { border-top-color: var(--open); }
+.st.hub::after, .st.next::after { border-top: 2px dashed var(--open); }
+.st.next .dot { border-color: var(--open); }
 .st b { font-size: 1.02rem; }
 .st small { font-size: 0.82rem; color: var(--muted); line-height: 1.45; }
 .legend { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 0.84rem; color: var(--muted); }
 .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 999px; margin-right: 7px; vertical-align: middle; }
 .legend .c i { background: var(--core); }
-.legend .o i { background: var(--open); }
-.legend .n i { border: 2px dashed var(--next); width: 8px; height: 8px; }
+.legend .x i { border: 2px solid var(--open); width: 8px; height: 8px; }
+.legend .g i { border: 2px dashed var(--next); width: 8px; height: 8px; }
+.story { display: flex; flex-direction: column; gap: 16px; }
+.story p { font-size: 1.04rem; }
+.story p.close { color: var(--ink); font-weight: 500; }
 
 /* person */
 .person { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); }
@@ -100,7 +104,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--core); outline-
 .role { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); letter-spacing: 0.02em; line-height: 1.6; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tag { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 11px; border-radius: 999px; background: color-mix(in srgb, var(--core) 11%, transparent); color: var(--core-ink); }
-.quote { border-left: 2px solid var(--open); padding-left: 16px; color: var(--ink); font-size: 1rem; }
+.career { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 .timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; min-width: 0; }
 .timeline li { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: 16px; padding-block: 16px; border-top: 1px solid var(--line); }
 .timeline li:last-child { border-bottom: 1px solid var(--line); }
@@ -125,9 +129,10 @@ a.chip:hover { border-color: var(--core); }
   .route { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .st { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; padding: 0 0 18px 30px; }
   .st .dot { position: absolute; left: 0; top: 4px; margin: 0; }
-  .st::after { top: 20px; bottom: 0; left: 7px; right: auto; border-top: 0; border-left: 2px dashed var(--next); }
-  .st.core::after { border-top: 0; border-left: 2px solid var(--core); }
-  .st.open::after { border-top: 0; border-left-color: var(--open); }
+  .st::after, .st.core::after, .st.hub::after, .st.next::after { top: 20px; bottom: 0; left: 7px; right: auto; border-top: 0; }
+  .st::after { border-left: 2px dashed var(--next); }
+  .st.core::after { border-left: 2px solid var(--core); }
+  .st.hub::after, .st.next::after { border-left: 2px dashed var(--open); }
   .person { grid-template-columns: minmax(0, 1fr); }
   .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; }
   .figures div:nth-child(3) { padding-left: 0; border-left: 0; }
@@ -154,44 +159,51 @@ a.chip:hover { border-color: var(--core); }
       <div class="who">
         <p class="eyebrow"><span class="en">Who you will work with</span><span class="zh">与您合作的人</span><span class="ja">担当者</span></p>
         <h1 class="name"><span class="en">Yuhei Yamada</span><span class="zh">山田 Yuhei</span><span class="ja">山田 Yuhei</span></h1>
-        <p class="role"><span class="en">Founder, Asia Shokusan Inc.<br>Co-founder, Director &amp; COO, BKU</span><span class="zh">Asia Shokusan Inc. 创始人<br>BKU 联合创始人、董事兼 COO</span><span class="ja">Asia Shokusan Inc. 創業者<br>BKU 共同創業者・取締役・COO</span></p>
+        <p class="role"><span class="en">Founder, Asia Shokusan Inc.<br>Co-founder, Director &amp; COO, BKU CO.,LTD.</span><span class="zh">Asia Shokusan Inc. 创始人<br>BKU CO.,LTD. 联合创始人、董事兼 COO</span><span class="ja">Asia Shokusan Inc. 創業者<br>BKU CO.,LTD. 共同創業者・取締役・COO</span></p>
         <div class="tags">
           <span class="tag"><span class="en">Japanese · native</span><span class="zh">日语 · 母语</span><span class="ja">日本語 · 母語</span></span>
           <span class="tag"><span class="en">English · business</span><span class="zh">英语 · 商务</span><span class="ja">英語 · ビジネス</span></span>
           <span class="tag"><span class="en">Burmese</span><span class="zh">缅甸语</span><span class="ja">ミャンマー語</span></span>
         </div>
-        <p class="quote"><span class="en">An engineer’s eye on samples: we test heat, battery and Japanese accuracy before we sell.</span><span class="zh">以工程师的眼光看样品：销售之前，我们会先测试发热、续航和日语准确度。</span><span class="ja">エンジニアの目でサンプルを見ます。売る前に、発熱・電池・日本語の精度を確かめます。</span></p>
       </div>
-      <ol class="timeline" aria-label="Career">
-        <li><span class="y">2012</span><p><span class="en">Completed a master’s in mechanical engineering at a Japanese national university. Joined DENSO Corporation, Japan’s largest auto parts maker, as a production engineer.</span><span class="zh">在日本国立大学完成机械工程硕士课程。以生产技术工程师身份加入日本最大的汽车零部件制造商——株式会社电装（DENSO）。</span><span class="ja">日本の国立大学で機械工学の修士課程を修了。国内最大手の自動車部品メーカー、株式会社デンソーに生産技術エンジニアとして入社。</span></p></li>
-        <li><span class="y">2016</span><p><span class="en">One-year assignment at DENSO Manufacturing Michigan (US). Five years of production engineering across Japan and the US.</span><span class="zh">赴美国 DENSO Manufacturing Michigan 工作一年。在日本和美国共从事生产技术五年。</span><span class="ja">米国 DENSO Manufacturing Michigan に1年赴任。日米で生産技術を計5年。</span></p></li>
-        <li><span class="y">2017</span><p><span class="en">Moves to Myanmar and co-founds BKU in Yangon.</span><span class="zh">移居缅甸，在仰光联合创立 BKU。</span><span class="ja">ミャンマーへ移り、ヤンゴンでBKUを共同創業。</span></p></li>
-        <li><span class="y">2024</span><p><span class="en">Relocates to Bangkok and starts the trading business.</span><span class="zh">移居曼谷，开展贸易业务。</span><span class="ja">バンコクへ移り、貿易事業を開始。</span></p></li>
-        <li class="now"><span class="y"><span class="en">Now</span><span class="zh">现在</span><span class="ja">現在</span></span><p><span class="en">Founder of Asia Shokusan Inc. Leads marketing, strategy and new business with teams in Yangon and Tokyo.</span><span class="zh">创立 Asia Shokusan Inc.，与仰光和东京团队一起负责市场营销、战略和新业务开发。</span><span class="ja">Asia Shokusan Inc. を創業。ヤンゴンと東京のチームとともに、マーケティング・戦略・新規事業を統括。</span></p></li>
+      <div class="career">
+      <p class="eyebrow"><span class="en">Career history</span><span class="zh">履历</span><span class="ja">略歴</span></p>
+      <ol class="timeline" aria-label="Career history">
+        <li><span class="y">2012</span><p><span class="en">Completed a master’s in mechanical engineering. Joined DENSO Corporation, Japan’s largest car parts maker, as a production engineer.</span><span class="zh">完成机械工程硕士课程。以生产技术工程师身份加入日本最大的汽车零部件制造商——株式会社电装（DENSO）。</span><span class="ja">機械工学の修士課程を修了。国内最大手の自動車部品メーカー、株式会社デンソーに生産技術エンジニアとして入社。</span></p></li>
+        <li><span class="y">2016</span><p><span class="en">Spent one year at DENSO Manufacturing Michigan in the US. In total, five years of production engineering across Japan and the US.</span><span class="zh">赴美国 DENSO Manufacturing Michigan 工作一年。在日本和美国累计从事生产技术五年。</span><span class="ja">米国 DENSO Manufacturing Michigan に1年赴任。日米で通算5年、生産技術に従事。</span></p></li>
+        <li><span class="y">2017</span><p><span class="en">Moved to Myanmar and co-founded BKU CO.,LTD. in Yangon.</span><span class="zh">移居缅甸，在仰光联合创立 BKU CO.,LTD.。</span><span class="ja">ミャンマーへ移り、ヤンゴンで BKU CO.,LTD. を共同創業。</span></p></li>
+        <li><span class="y">2024</span><p><span class="en">Relocated to Bangkok and started the trading business.</span><span class="zh">移居曼谷，开展贸易业务。</span><span class="ja">バンコクへ移り、貿易事業を開始。</span></p></li>
+        <li class="now"><span class="y"><span class="en">Now</span><span class="zh">现在</span><span class="ja">現在</span></span><p><span class="en">Founded Asia Shokusan Inc. Leading marketing, strategy and new business with teams in Yangon and Tokyo.</span><span class="zh">创立 Asia Shokusan Inc.，与仰光和东京团队一起负责市场营销、战略和新业务开发。</span><span class="ja">Asia Shokusan Inc. を創業。ヤンゴンと東京のチームとともに、マーケティング・戦略・新規事業を統括。</span></p></li>
       </ol>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="band white" id="markets">
+<section class="band white" id="silk-road">
   <div class="inner">
     <div class="head">
-      <p class="eyebrow"><span class="en">About us · Asia Shokusan · BKU</span><span class="zh">关于我们 · Asia Shokusan · BKU</span><span class="ja">私たちについて · Asia Shokusan · BKU</span></p>
-      <h2><span class="en">Thailand and Japan at the core. Myanmar already open. India, the Middle East and Europe next.</span><span class="zh">以泰国和日本为核心，缅甸已有销售渠道，下一步拓展印度、中东和欧洲。</span><span class="ja">タイと日本を軸に、ミャンマーには既に販路。次はインド、中東、ヨーロッパへ。</span></h2>
-      <p class="lead"><span class="en">Asia Shokusan Inc., a Japanese trading company, and BKU connect manufacturers in China and ASEAN with buyers. With Thailand and Japan at the core and sales channels already in place in Myanmar, we are expanding to India, the Middle East and Europe.</span><span class="zh">Asia Shokusan Inc.（日本贸易公司）与 BKU 连接中国和东盟的制造商与各国买家。我们以泰国和日本为核心，在缅甸已有销售渠道，并将拓展至印度、中东和欧洲。</span><span class="ja">日本の商社 Asia Shokusan Inc. と BKU は、中国・ASEANのメーカーと各国の買い手をつなぎます。タイと日本を軸にミャンマーに既に販路があり、インド、中東、ヨーロッパへ拡大していきます。</span></p>
+      <p class="eyebrow">Silk Road 2040</p>
+      <h2><span class="en">From Bangkok, across the continent to Europe.</span><span class="zh">以曼谷为枢纽，横跨大陆，直到欧洲。</span><span class="ja">バンコクから、大陸を渡ってヨーロッパへ。</span></h2>
     </div>
-    <ol class="route" aria-label="Markets">
-      <li class="st core"><span class="dot"></span><b><span class="en">Japan</span><span class="zh">日本</span><span class="ja">日本</span></b><small><span class="en">Tokyo · Sapporo</span><span class="zh">东京 · 札幌</span><span class="ja">東京 · 札幌</span></small></li>
-      <li class="st core"><span class="dot"></span><b><span class="en">Thailand</span><span class="zh">泰国</span><span class="ja">タイ</span></b><small><span class="en">Bangkok · head base</span><span class="zh">曼谷 · 总部</span><span class="ja">バンコク · 本拠地</span></small></li>
-      <li class="st open"><span class="dot"></span><b><span class="en">Myanmar</span><span class="zh">缅甸</span><span class="ja">ミャンマー</span></b><small><span class="en">Yangon · since 2017</span><span class="zh">仰光 · 自2017年</span><span class="ja">ヤンゴン · 2017年から</span></small></li>
-      <li class="st"><span class="dot"></span><b><span class="en">India</span><span class="zh">印度</span><span class="ja">インド</span></b><small><span class="en">Next</span><span class="zh">下一步</span><span class="ja">これから</span></small></li>
-      <li class="st"><span class="dot"></span><b><span class="en">Middle East</span><span class="zh">中东</span><span class="ja">中東</span></b><small><span class="en">Next</span><span class="zh">下一步</span><span class="ja">これから</span></small></li>
-      <li class="st"><span class="dot"></span><b><span class="en">Europe</span><span class="zh">欧洲</span><span class="ja">ヨーロッパ</span></b><small><span class="en">Next</span><span class="zh">下一步</span><span class="ja">これから</span></small></li>
+    <div class="story">
+      <p class="lead"><span class="en">Silk Road 2040 is my personal long-term project: for my family to live and trade across the continent. This is why I run this business.</span><span class="zh">Silk Road 2040 是我个人的长期项目：让我的家族在这片大陆上经商、生活。这正是我做这项事业的原因。</span><span class="ja">シルクロード2040は、私個人の長期プロジェクトです。一族で大陸を舞台に商売をし、暮らしていくこと。それが、私がこの事業をしている理由です。</span></p>
+      <p><span class="en">Through Asia Shokusan Inc. and BKU CO.,LTD., I connect manufacturers with buyers. Bangkok is our hub. We start with China and Japan, then grow into ASEAN markets such as Indonesia and Vietnam, and take on India. After that comes the Middle East, and finally Europe.</span><span class="zh">我通过 Asia Shokusan Inc. 和 BKU CO.,LTD. 连接制造商与买家。曼谷是我们的枢纽。我们从中国和日本起步，之后拓展到印度尼西亚、越南等东盟市场，并挑战印度；再进入中东，最终抵达欧洲。</span><span class="ja">Asia Shokusan Inc. と BKU CO.,LTD. を通じて、メーカーと買い手をつないでいます。バンコクをハブに、中国と日本から始めます。次にインドネシアやベトナムなどのASEAN、そしてインドに挑戦します。その先は中東、最後はヨーロッパまでたどり着きたいと考えています。</span></p>
+      <p class="close"><span class="en">From mechanical engineering at DENSO in Japan and the US, to starting a company in Myanmar, to Bangkok today, every step has taken me further along this road. I am looking for partners who want to go the distance with me.</span><span class="zh">从在电装的日本和美国从事生产技术，到在缅甸创业，再到今天的曼谷，每一步都让我在这条路上走得更远。我希望与愿意一起走得更远的伙伴合作。</span><span class="ja">機械工学を学び、デンソーで日本と米国の生産技術に携わり、ミャンマーで起業し、いまはバンコクにいます。一歩ずつ、この道を進んできました。遠くまで一緒に行けるパートナーを探しています。</span></p>
+    </div>
+    <ol class="route" aria-label="Silk Road 2040">
+      <li class="st core"><span class="dot"></span><b><span class="en">Japan</span><span class="zh">日本</span><span class="ja">日本</span></b><small><span class="en">Start · Tokyo, Sapporo</span><span class="zh">起点 · 东京、札幌</span><span class="ja">スタート · 東京・札幌</span></small></li>
+      <li class="st core"><span class="dot"></span><b><span class="en">China</span><span class="zh">中国</span><span class="ja">中国</span></b><small><span class="en">Start</span><span class="zh">起点</span><span class="ja">スタート</span></small></li>
+      <li class="st hub"><span class="dot"></span><b><span class="en">Bangkok</span><span class="zh">曼谷</span><span class="ja">バンコク</span></b><small><span class="en">Hub</span><span class="zh">枢纽</span><span class="ja">ハブ拠点</span></small></li>
+      <li class="st next"><span class="dot"></span><b>ASEAN</b><small><span class="en">Indonesia · Vietnam</span><span class="zh">印度尼西亚 · 越南</span><span class="ja">インドネシア・ベトナム</span></small></li>
+      <li class="st next"><span class="dot"></span><b><span class="en">India</span><span class="zh">印度</span><span class="ja">インド</span></b><small><span class="en">Challenge</span><span class="zh">挑战</span><span class="ja">挑戦</span></small></li>
+      <li class="st"><span class="dot"></span><b><span class="en">Middle East</span><span class="zh">中东</span><span class="ja">中東</span></b><small><span class="en">Goal</span><span class="zh">目标</span><span class="ja">目標</span></small></li>
+      <li class="st"><span class="dot"></span><b><span class="en">Europe</span><span class="zh">欧洲</span><span class="ja">ヨーロッパ</span></b><small><span class="en">Goal</span><span class="zh">目标</span><span class="ja">目標</span></small></li>
     </ol>
     <div class="legend">
-      <span class="c"><i></i><span class="en">Core markets</span><span class="zh">核心市场</span><span class="ja">軸となる市場</span></span>
-      <span class="o"><i></i><span class="en">Sales channels in place</span><span class="zh">已有销售渠道</span><span class="ja">販路あり</span></span>
-      <span class="n"><i></i><span class="en">Expanding next</span><span class="zh">下一步拓展</span><span class="ja">これから拡大</span></span>
+      <span class="c"><i></i><span class="en">Start and hub</span><span class="zh">起点与枢纽</span><span class="ja">スタートとハブ</span></span>
+      <span class="x"><i></i><span class="en">Next</span><span class="zh">下一步</span><span class="ja">次の挑戦</span></span>
+      <span class="g"><i></i><span class="en">Long-term goal</span><span class="zh">长期目标</span><span class="ja">長期の目標</span></span>
     </div>
   </div>
 </section>

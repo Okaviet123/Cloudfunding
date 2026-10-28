@@ -1,0 +1,243 @@
+<title>Yuhei Yamada Profile</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@500;700&family=Noto+Serif+JP:wght@500;700&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap">
+<style>
+/* Layout: one calm 960px column; route strip from Japan westward (the "Silk Road"), then person, then numbers. Shares the proposal series' type and indigo/teal palette so it can be dropped into any proposal. */
+:root {
+  --paper: #F3F4F8;
+  --panel: #FFFFFF;
+  --ink: #16152B;
+  --muted: #5D5C74;
+  --line: #DFDEEA;
+  --core: #5546D8;
+  --core-ink: #4535BF;
+  --open: #0B8273;
+  --open-ink: #086A5E;
+  --next: #9A98B4;
+  --deep: #1B1936;
+  --on-deep: #EEEDF8;
+  --on-deep-muted: #B9B6D6;
+  --display-latin: "Newsreader", Georgia, serif;
+  --body-latin: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #100F1E; --panel: #1A192F; --ink: #ECEBF6; --muted: #A3A1BD; --line: #2B2A47;
+    --core: #9C90F6; --core-ink: #B2A8F8; --open: #3FC4B3; --open-ink: #72D8CA; --next: #6E6C8C;
+    --deep: #232046; --on-deep: #F0EFFA; --on-deep-muted: #BDBADB;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #100F1E; --panel: #1A192F; --ink: #ECEBF6; --muted: #A3A1BD; --line: #2B2A47;
+  --core: #9C90F6; --core-ink: #B2A8F8; --open: #3FC4B3; --open-ink: #72D8CA; --next: #6E6C8C;
+  --deep: #232046; --on-deep: #F0EFFA; --on-deep-muted: #BDBADB;
+  color-scheme: dark;
+}
+body { background: var(--paper); color: var(--ink); font-family: var(--body-latin); font-size: 17px; line-height: 1.65; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+
+/* language */
+.intro[data-lang="en"] .zh, .intro[data-lang="en"] .ja,
+.intro[data-lang="zh"] .en, .intro[data-lang="zh"] .ja,
+.intro[data-lang="ja"] .en, .intro[data-lang="ja"] .zh { display: none; }
+.intro[data-lang="zh"] { font-family: "IBM Plex Sans", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.8; }
+.intro[data-lang="ja"] { font-family: "IBM Plex Sans", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif; line-height: 1.8; }
+.intro h1, .intro h2, .intro .big, .intro .name { font-family: var(--display-latin); }
+.intro[data-lang="zh"] h1, .intro[data-lang="zh"] h2, .intro[data-lang="zh"] .big, .intro[data-lang="zh"] .name { font-family: "Newsreader", "Noto Serif SC", "Songti SC", serif; }
+.intro[data-lang="ja"] h1, .intro[data-lang="ja"] h2, .intro[data-lang="ja"] .big, .intro[data-lang="ja"] .name { font-family: "Newsreader", "Noto Serif JP", "Hiragino Mincho ProN", serif; }
+.intro[data-lang="zh"] .eyebrow, .intro[data-lang="ja"] .eyebrow, .intro[data-lang="zh"] .tag, .intro[data-lang="ja"] .tag { letter-spacing: 0.06em; text-transform: none; }
+
+.inner { max-width: 960px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: clamp(28px, 4vw, 44px); }
+.band { padding-block: clamp(56px, 8vw, 96px); }
+.band.white { background: var(--panel); }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.15; font-weight: 500; letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.2; font-weight: 500; }
+h3 { font-size: 1.05rem; font-weight: 600; line-height: 1.45; }
+p { margin: 0; max-width: 66ch; }
+a { color: var(--core-ink); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--core); outline-offset: 3px; }
+.eyebrow { font-family: var(--mono); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--core-ink); }
+.lead { font-size: clamp(1.05rem, 1.6vw, 1.18rem); color: var(--muted); }
+.note { font-size: 0.86rem; color: var(--muted); }
+.head { display: flex; flex-direction: column; gap: 14px; }
+
+/* top bar */
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.topbar .inner { flex-direction: row; justify-content: space-between; align-items: center; gap: 12px; padding-block: 12px; }
+.brand { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); letter-spacing: 0.1em; }
+.langs { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); padding: 3px; gap: 2px; }
+.langs button { font: 500 0.9rem/1 var(--body-latin); color: var(--muted); background: transparent; border: 0; border-radius: 999px; padding: 8px 15px; cursor: pointer; }
+.langs button[data-l="zh"] { font-family: "Noto Sans SC", sans-serif; }
+.langs button[data-l="ja"] { font-family: "Noto Sans JP", sans-serif; }
+.langs button[aria-pressed="true"] { background: var(--deep); color: var(--on-deep); }
+
+/* route strip: Japan → Europe */
+.route { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.st { position: relative; display: flex; flex-direction: column; gap: 4px; padding-right: 12px; min-width: 0; }
+.st .dot { width: 16px; height: 16px; border-radius: 999px; background: var(--paper); border: 3px solid var(--next); position: relative; z-index: 1; margin-bottom: 10px; }
+.st::after { content: ""; position: absolute; top: 7px; left: 16px; right: 0; border-top: 2px dashed var(--next); }
+.st:last-child::after { display: none; }
+.st.core .dot { background: var(--core); border-color: var(--core); }
+.st.core::after { border-top: 2px solid var(--core); }
+.st.open .dot { background: var(--open); border-color: var(--open); }
+.st.open::after { border-top-color: var(--open); }
+.st b { font-size: 1.02rem; }
+.st small { font-size: 0.82rem; color: var(--muted); line-height: 1.45; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 0.84rem; color: var(--muted); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 999px; margin-right: 7px; vertical-align: middle; }
+.legend .c i { background: var(--core); }
+.legend .o i { background: var(--open); }
+.legend .n i { border: 2px dashed var(--next); width: 8px; height: 8px; }
+
+/* person */
+.person { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); }
+.who { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.name { font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.1; font-weight: 500; }
+.role { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); letter-spacing: 0.02em; line-height: 1.6; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 11px; border-radius: 999px; background: color-mix(in srgb, var(--core) 11%, transparent); color: var(--core-ink); }
+.quote { border-left: 2px solid var(--open); padding-left: 16px; color: var(--ink); font-size: 1rem; }
+.timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; min-width: 0; }
+.timeline li { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: 16px; padding-block: 16px; border-top: 1px solid var(--line); }
+.timeline li:last-child { border-bottom: 1px solid var(--line); }
+.timeline .y { font-family: var(--mono); font-size: 0.86rem; color: var(--core-ink); padding-top: 2px; font-variant-numeric: tabular-nums; }
+.timeline p { font-size: 0.97rem; }
+.timeline li.now .y { color: var(--open-ink); }
+
+/* numbers */
+.figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.figures div { padding: 22px 18px 0 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.figures div + div { padding-left: 18px; border-left: 1px solid var(--line); }
+.figures .big { font-size: clamp(1.9rem, 3.6vw, 2.7rem); line-height: 1; font-weight: 500; font-variant-numeric: tabular-nums; }
+.figures small { color: var(--muted); font-size: 0.86rem; line-height: 1.55; }
+
+/* contact */
+.contact { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
+.chip { font-family: var(--mono); font-size: 0.82rem; text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; color: var(--core-ink); background: var(--panel); }
+a.chip:hover { border-color: var(--core); }
+.mail { user-select: all; color: var(--ink); }
+
+@media (max-width: 760px) {
+  .route { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .st { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; padding: 0 0 18px 30px; }
+  .st .dot { position: absolute; left: 0; top: 4px; margin: 0; }
+  .st::after { top: 20px; bottom: 0; left: 7px; right: auto; border-top: 0; border-left: 2px dashed var(--next); }
+  .st.core::after { border-top: 0; border-left: 2px solid var(--core); }
+  .st.open::after { border-top: 0; border-left-color: var(--open); }
+  .person { grid-template-columns: minmax(0, 1fr); }
+  .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; }
+  .figures div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .brand { display: none; }
+}
+</style>
+
+<div class="intro" id="intro" data-lang="en">
+
+<nav class="topbar" aria-label="Language">
+  <div class="inner">
+    <span class="brand">ASIA SHOKUSAN · BKU</span>
+    <div class="langs" role="group" aria-label="Language / 语言 / 言語">
+      <button type="button" id="lang-en" data-l="en" aria-pressed="true">EN</button>
+      <button type="button" id="lang-zh" data-l="zh" aria-pressed="false">中文</button>
+      <button type="button" id="lang-ja" data-l="ja" aria-pressed="false">日本語</button>
+    </div>
+  </div>
+</nav>
+
+<section class="band" id="markets">
+  <div class="inner">
+    <div class="head">
+      <p class="eyebrow"><span class="en">About us · Asia Shokusan · BKU</span><span class="zh">关于我们 · Asia Shokusan · BKU</span><span class="ja">私たちについて · Asia Shokusan · BKU</span></p>
+      <h1><span class="en">Thailand and Japan at the core. Myanmar already open. India, the Middle East and Europe next.</span><span class="zh">以泰国和日本为核心，缅甸已有销售渠道，下一步拓展印度、中东和欧洲。</span><span class="ja">タイと日本を軸に、ミャンマーには既に販路。次はインド、中東、ヨーロッパへ。</span></h1>
+      <p class="lead"><span class="en">Asia Shokusan Inc., a Japanese trading company, and BKU connect manufacturers in China and ASEAN with buyers. With Thailand and Japan at the core and sales channels already in place in Myanmar, we are expanding to India, the Middle East and Europe.</span><span class="zh">Asia Shokusan Inc.（日本贸易公司）与 BKU 连接中国和东盟的制造商与各国买家。我们以泰国和日本为核心，在缅甸已有销售渠道，并将拓展至印度、中东和欧洲。</span><span class="ja">日本の商社 Asia Shokusan Inc. と BKU は、中国・ASEANのメーカーと各国の買い手をつなぎます。タイと日本を軸にミャンマーに既に販路があり、インド、中東、ヨーロッパへ拡大していきます。</span></p>
+    </div>
+    <ol class="route" aria-label="Markets">
+      <li class="st core"><span class="dot"></span><b><span class="en">Japan</span><span class="zh">日本</span><span class="ja">日本</span></b><small><span class="en">Tokyo · Sapporo</span><span class="zh">东京 · 札幌</span><span class="ja">東京 · 札幌</span></small></li>
+      <li class="st core"><span class="dot"></span><b><span class="en">Thailand</span><span class="zh">泰国</span><span class="ja">タイ</span></b><small><span class="en">Bangkok · head base</span><span class="zh">曼谷 · 总部</span><span class="ja">バンコク · 本拠地</span></small></li>
+      <li class="st open"><span class="dot"></span><b><span class="en">Myanmar</span><span class="zh">缅甸</span><span class="ja">ミャンマー</span></b><small><span class="en">Yangon · since 2017</span><span class="zh">仰光 · 自2017年</span><span class="ja">ヤンゴン · 2017年から</span></small></li>
+      <li class="st"><span class="dot"></span><b><span class="en">India</span><span class="zh">印度</span><span class="ja">インド</span></b><small><span class="en">Next</span><span class="zh">下一步</span><span class="ja">これから</span></small></li>
+      <li class="st"><span class="dot"></span><b><span class="en">Middle East</span><span class="zh">中东</span><span class="ja">中東</span></b><small><span class="en">Next</span><span class="zh">下一步</span><span class="ja">これから</span></small></li>
+      <li class="st"><span class="dot"></span><b><span class="en">Europe</span><span class="zh">欧洲</span><span class="ja">ヨーロッパ</span></b><small><span class="en">Next</span><span class="zh">下一步</span><span class="ja">これから</span></small></li>
+    </ol>
+    <div class="legend">
+      <span class="c"><i></i><span class="en">Core markets</span><span class="zh">核心市场</span><span class="ja">軸となる市場</span></span>
+      <span class="o"><i></i><span class="en">Sales channels in place</span><span class="zh">已有销售渠道</span><span class="ja">販路あり</span></span>
+      <span class="n"><i></i><span class="en">Expanding next</span><span class="zh">下一步拓展</span><span class="ja">これから拡大</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="band white" id="person">
+  <div class="inner">
+    <div class="person">
+      <div class="who">
+        <p class="eyebrow"><span class="en">Who you will work with</span><span class="zh">与您合作的人</span><span class="ja">担当者</span></p>
+        <h2 class="name"><span class="en">Yuhei Yamada</span><span class="zh">山田 Yuhei</span><span class="ja">山田 Yuhei</span></h2>
+        <p class="role"><span class="en">Founder, Asia Shokusan Inc.<br>Co-founder, Director &amp; COO, BKU</span><span class="zh">Asia Shokusan Inc. 创始人<br>BKU 联合创始人、董事兼 COO</span><span class="ja">Asia Shokusan Inc. 創業者<br>BKU 共同創業者・取締役・COO</span></p>
+        <div class="tags">
+          <span class="tag"><span class="en">Japanese · native</span><span class="zh">日语 · 母语</span><span class="ja">日本語 · 母語</span></span>
+          <span class="tag"><span class="en">English · business</span><span class="zh">英语 · 商务</span><span class="ja">英語 · ビジネス</span></span>
+          <span class="tag"><span class="en">Burmese</span><span class="zh">缅甸语</span><span class="ja">ミャンマー語</span></span>
+        </div>
+        <p class="quote"><span class="en">An engineer’s eye on samples: we test heat, battery and Japanese accuracy before we sell.</span><span class="zh">以工程师的眼光看样品：销售之前，我们会先测试发热、续航和日语准确度。</span><span class="ja">エンジニアの目でサンプルを見ます。売る前に、発熱・電池・日本語の精度を確かめます。</span></p>
+      </div>
+      <ol class="timeline" aria-label="Career">
+        <li><span class="y">2012</span><p><span class="en">Master’s in mechanical engineering at a Japanese national university. Joins DENSO in production engineering.</span><span class="zh">在日本国立大学取得机械工程硕士学位，加入电装（DENSO）从事生产技术工作。</span><span class="ja">日本の国立大学で機械工学の修士を取得。デンソーで生産技術を担当。</span></p></li>
+        <li><span class="y">2016</span><p><span class="en">One-year assignment at DENSO Manufacturing Michigan (US). Five years of production engineering across Japan and the US.</span><span class="zh">赴美国 DENSO Manufacturing Michigan 工作一年。在日本和美国共从事生产技术五年。</span><span class="ja">米国 DENSO Manufacturing Michigan に1年赴任。日米で生産技術を計5年。</span></p></li>
+        <li><span class="y">2017</span><p><span class="en">Moves to Myanmar and co-founds BKU in Yangon.</span><span class="zh">移居缅甸，在仰光联合创立 BKU。</span><span class="ja">ミャンマーへ移り、ヤンゴンでBKUを共同創業。</span></p></li>
+        <li><span class="y">2024</span><p><span class="en">Relocates to Bangkok and starts the trading business.</span><span class="zh">移居曼谷，开展贸易业务。</span><span class="ja">バンコクへ移り、貿易事業を開始。</span></p></li>
+        <li class="now"><span class="y"><span class="en">Now</span><span class="zh">现在</span><span class="ja">現在</span></span><p><span class="en">Founder of Asia Shokusan Inc. Leads marketing, strategy and new business with teams in Yangon and Tokyo.</span><span class="zh">创立 Asia Shokusan Inc.，与仰光和东京团队一起负责市场营销、战略和新业务开发。</span><span class="ja">Asia Shokusan Inc. を創業。ヤンゴンと東京のチームとともに、マーケティング・戦略・新規事業を統括。</span></p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="numbers">
+  <div class="inner">
+    <div class="head">
+      <p class="eyebrow"><span class="en">Our network in Japan</span><span class="zh">我们在日本的网络</span><span class="ja">日本でのつながり</span></p>
+    </div>
+    <div class="figures">
+      <div><span class="big">2017</span><small><span class="en">BKU co-founded in Yangon</span><span class="zh">BKU 在仰光联合创立</span><span class="ja">ヤンゴンでBKUを共同創業</span></small></div>
+      <div><span class="big">4</span><small><span class="en">bases: Bangkok, Yangon, Tokyo, Sapporo</span><span class="zh">个据点：曼谷、仰光、东京、札幌</span><span class="ja">拠点：バンコク・ヤンゴン・東京・札幌</span></small></div>
+      <div><span class="big">525</span><small><span class="en">workers placed with employers in Japan</span><span class="zh">名人才已派遣至日本企业</span><span class="ja">人を日本の企業へ送り出し</span></small></div>
+      <div><span class="big">96</span><small><span class="en">client companies in 31 prefectures of Japan</span><span class="zh">家客户企业，遍布日本 31 个都道府县</span><span class="ja">社の取引先、日本の31都道府県</span></small></div>
+    </div>
+    <p class="note"><span class="en">525 and 96: BKU workforce business (Myanmar → Japan), completed placements since 2019, as of July 2026. These are not trading-business sales.</span><span class="zh">525 和 96：BKU 人才业务（缅甸 → 日本），2019年以来完成的派遣，截至2026年7月。并非贸易业务的销售数据。</span><span class="ja">525と96：BKUの人材事業（ミャンマー→日本）、2019年以降の実績、2026年7月時点。貿易事業の販売実績ではありません。</span></p>
+    <div class="contact">
+      <span class="chip mail">yamada@bku1.com</span>
+      <a class="chip" href="https://trade.bku1.com/" target="_blank" rel="noopener">trade.bku1.com ↗</a>
+      <a class="chip" href="https://www.linkedin.com/in/yyasi/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('intro');
+  var buttons = root.querySelectorAll('.langs button');
+  var htmlLang = { en: 'en', zh: 'zh-Hans', ja: 'ja' };
+  function setLang(l, save) {
+    if (!htmlLang[l]) l = 'en';
+    root.setAttribute('data-lang', l);
+    document.documentElement.lang = htmlLang[l];
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.l === l ? 'true' : 'false'); });
+    if (save) { try { localStorage.setItem('intro-lang', l); } catch (e) {} }
+  }
+  buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.l, true); }); });
+  var start = 'en';
+  var nav = (navigator.language || '').toLowerCase();
+  if (nav.indexOf('ja') === 0) start = 'ja'; else if (nav.indexOf('zh') === 0) start = 'zh';
+  var h = (location.hash || '').replace('#', '');
+  if (htmlLang[h]) { start = h; }
+  else { try { var s = localStorage.getItem('intro-lang'); if (htmlLang[s]) start = s; } catch (e) {} }
+  setLang(start, false);
+  window.addEventListener('hashchange', function () { var x = location.hash.replace('#', ''); if (htmlLang[x]) setLang(x, true); });
+})();
+</script>

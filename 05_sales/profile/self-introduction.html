@@ -3,7 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@500;700&family=Noto+Serif+JP:wght@500;700&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap">
 <style>
-/* Layout: one calm 960px column; person, then the SilkRoad 2040 map band (monochrome, inverted), then numbers. Shares the proposal series' type and indigo/teal palette so it can be dropped into any proposal. */
+/* Layout: one calm 960px column; person, then the SilkRoad 2040 map band (monochrome, inverted), then contact. Shares the proposal series' type and indigo/teal palette so it can be dropped into any proposal. */
 :root {
   --paper: #F3F4F8;
   --panel: #FFFFFF;
@@ -75,6 +75,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--core); outline-
 .langs button[data-l="ja"] { font-family: "Noto Sans JP", sans-serif; }
 .langs button[aria-pressed="true"] { background: var(--deep); color: var(--on-deep); }
 
+/* embed:start — portable CSS for About me, SilkRoad 2040 and Let's connect; copied into proposals by the proposal-self-intro skill */
 /* SilkRoad 2040: monochrome, inverted band. Dot-matrix continent, route weight = commitment (solid now, dashed next, dotted goal). */
 .silk { background: var(--ink); color: var(--paper); overflow: hidden; }
 .silk .eyebrow { color: color-mix(in srgb, var(--paper) 62%, var(--ink)); }
@@ -102,7 +103,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--core); outline-
 .silkmap .m-ring { fill: var(--ink); stroke: var(--paper); stroke-width: 2; }
 .silkmap .m-halo { fill: none; stroke: var(--paper); stroke-width: 0.8; opacity: 0.6; }
 .silkmap .num { fill: var(--paper); font-family: var(--mono); font-size: 13px; font-weight: 500; paint-order: stroke; stroke: var(--ink); stroke-width: 4px; stroke-linejoin: round; }
-.silkmap .num.src { font-size: 10px; opacity: 0.8; }
+.silkmap .num.mk { font-size: 10px; opacity: 0.8; }
 .phases { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 24px; padding-top: 24px; border-top: 1px solid color-mix(in srgb, var(--paper) 24%, transparent); }
 .phase { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 .phase h3 { display: flex; flex-direction: column; gap: 12px; font-family: var(--mono); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: color-mix(in srgb, var(--paper) 70%, var(--ink)); }
@@ -110,7 +111,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--core); outline-
 .phase .ln { display: block; width: 64px; height: 0; border-top: 3.5px solid var(--paper); }
 .phase .ln.next { border-top: 2px dashed var(--paper); }
 .phase .ln.goal { border-top: 3px dotted var(--paper); }
-.phase .ln.src { border-top: 1px dashed var(--paper); opacity: 0.75; }
+.phase .ln.mk { border-top: 1px dashed var(--paper); opacity: 0.75; }
 .phase ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .phase li { display: grid; grid-template-columns: 2.1rem minmax(0, 1fr); gap: 8px; }
 .phase .n { font-family: var(--mono); font-size: 0.8rem; padding-top: 3px; color: color-mix(in srgb, var(--paper) 60%, var(--ink)); font-variant-numeric: tabular-nums; }
@@ -124,7 +125,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--core); outline-
 .who .id { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 .portrait { display: block; width: 150px; max-width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 6px; }
 .name { font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.1; font-weight: 500; }
-.role { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); letter-spacing: 0.02em; line-height: 1.6; }
+.who .role { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); letter-spacing: 0.02em; line-height: 1.6; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tag { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 11px; border-radius: 999px; background: color-mix(in srgb, var(--core) 11%, transparent); color: var(--core-ink); }
 .career { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
@@ -135,9 +136,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--core); outline-
 .timeline p { font-size: 0.97rem; }
 .timeline li.now .y { color: var(--open-ink); }
 
-/* numbers */
-
-/* contact */
 /* connect */
 .connect-h { font-size: clamp(2.2rem, 5vw, 3.6rem); }
 .qrs { display: grid; grid-template-columns: repeat(3, minmax(0, 180px)); gap: clamp(14px, 3vw, 32px); }
@@ -150,9 +148,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--core); outline-
 .btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.98rem; text-decoration: none; color: var(--on-deep); background: var(--deep); border-radius: 999px; padding: 11px 20px; }
 .btn:hover { background: var(--core-ink); }
 .contact { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
-.chip { font-family: var(--mono); font-size: 0.82rem; text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; color: var(--core-ink); background: var(--panel); }
-a.chip:hover { border-color: var(--core); }
+.cchip { font-family: var(--mono); font-size: 0.82rem; text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; color: var(--core-ink); background: var(--panel); }
+a.cchip:hover { border-color: var(--core); }
 .mail { user-select: all; color: var(--ink); }
+
+/* embed:end */
 
 @media (max-width: 760px) {
   .phases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -250,7 +250,7 @@ a.chip:hover { border-color: var(--core); }
         <text class="num" x="468.1" y="181.3" text-anchor="middle">05</text>
         <text class="num" x="401.1" y="222.7" text-anchor="middle">06</text>
         <text class="num" x="276.3" y="109.7" text-anchor="middle">07</text>
-        <text class="num src" x="574.3" y="169.8">CN</text>
+        <text class="num mk" x="574.3" y="169.8">CN</text>
       </svg></div>
       <figcaption><span class="en">Map: trade.bku1.com. The routes show our plan, not shipping lines.<span class="swipe"> ← Swipe west</span></span><span class="zh">地图来源：trade.bku1.com。路线是我们的计划示意，不是运输线路。<span class="swipe"> ← 向西滑动</span></span><span class="ja">地図：trade.bku1.com。ルートは計画のイメージで、実際の輸送ルートではありません。<span class="swipe"> ← 西へスワイプ</span></span></figcaption>
     </figure>
@@ -268,7 +268,7 @@ a.chip:hover { border-color: var(--core); }
         <li><span class="n">06</span><div><b><span class="en">Middle East</span><span class="zh">中东</span><span class="ja">中東</span></b></div></li>
         <li><span class="n">07</span><div><b><span class="en">Europe</span><span class="zh">欧洲</span><span class="ja">ヨーロッパ</span></b></div></li>
       </ol></div>
-      <div class="phase"><h3><span class="ln src"></span><span class="en">Makers</span><span class="zh">制造商</span><span class="ja">メーカー</span></h3><ol>
+      <div class="phase"><h3><span class="ln mk"></span><span class="en">Makers</span><span class="zh">制造商</span><span class="ja">メーカー</span></h3><ol>
         <li><span class="n">CN</span><div><b><span class="en">China</span><span class="zh">中国</span><span class="ja">中国</span></b><small><span class="en">Makers in China and ASEAN</span><span class="zh">中国和东盟的制造商</span><span class="ja">中国・ASEANのメーカー</span></small></div></li>
       </ol></div>
     </div>
@@ -290,8 +290,8 @@ a.chip:hover { border-color: var(--core); }
     <p class="note"><span class="en">On a phone? Just tap the code.</span><span class="zh">用手机浏览？直接点击二维码。</span><span class="ja">スマホの場合は、QRをタップしてください。</span></p>
     <div class="contact">
       <a class="btn" href="https://www.linkedin.com/in/yyasi/" target="_blank" rel="noopener"><span class="en">Connect on LinkedIn</span><span class="zh">在 LinkedIn 上联系</span><span class="ja">LinkedInでつながる</span> ↗</a>
-      <span class="chip mail">yamada@bku1.com</span>
-      <a class="chip" href="https://trade.bku1.com/" target="_blank" rel="noopener">trade.bku1.com ↗</a>
+      <span class="cchip mail">yamada@bku1.com</span>
+      <a class="cchip" href="https://trade.bku1.com/" target="_blank" rel="noopener">trade.bku1.com ↗</a>
     </div>
   </div>
 </section>

@@ -78,7 +78,7 @@ Edit the standalone page first, then re-embed. Never fork the copy inside a prop
   - Future: the Middle East, Europe.
   - Bangkok is the hub.
   - China is shown only as Makers, and only for China-based partners.
-- **Facts.** Use only facts Yuhei stated or trade.bku1.com states. Flag anything you could not verify (for example "自社の学校" is his word, not on the site). Do not reintroduce removed items such as the 525 / 96 workforce numbers unless he asks.
+- **Facts.** Use only facts Yuhei stated or https://asiashokusan.com/ states. His contact email is yamada@asiashokusan.com. Flag anything you could not verify (for example "自社の学校" is his word, not on the site). Do not reintroduce removed items such as the 525 / 96 workforce numbers unless he asks.
 - **Layout.** The face photo sits at the right end of the name block. The contact block comes after the proposal's questions or plan, as the last call to action before the appendix.
 
 ## When the standalone page changes

@@ -256,7 +256,7 @@ def main():
         report.append('CHECK class names used by both pages: ' + ', '.join('.' + c for c in clash))
 
     open(a.out or a.proposal, 'w', encoding='utf-8').write(p)
-    report.append('images to publish: img/yuhei.jpg, img/qr-wechat.png, img/qr-line.png, img/qr-whatsapp.png')
+    report.append('images to publish: img/yuhei.jpg, img/qr-wechat.png, img/qr-line.png, img/qr-whatsapp.png, img/logo-asiashokusan.png (swap the proposal\'s top-bar brand text for <img class="logo">)')
     print('\n'.join(report))
 
 

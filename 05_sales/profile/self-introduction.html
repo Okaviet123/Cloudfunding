@@ -162,13 +162,18 @@ a.cchip:hover { border-color: var(--core); }
   .portrait { width: 104px; }
   .brand { display: none; }
 }
+
+/* company logo (black artwork; inverted in dark theme) */
+.logo { display: block; height: 34px; width: auto; max-width: 46vw; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo { filter: invert(1); } }
+:root[data-theme="dark"] .logo { filter: invert(1); }
 </style>
 
 <div class="intro" id="intro" data-lang="en">
 
 <nav class="topbar" aria-label="Language">
   <div class="inner">
-    <span class="brand">ASIA SHOKUSAN · BKU</span>
+    <img class="logo" src="img/logo-asiashokusan.png" alt="Asia Shokusan Inc. / アジア殖産株式会社" width="960" height="343">
     <div class="langs" role="group" aria-label="Language / 语言 / 言語">
       <button type="button" id="lang-en" data-l="en" aria-pressed="true">EN</button>
       <button type="button" id="lang-zh" data-l="zh" aria-pressed="false">中文</button>
@@ -184,7 +189,7 @@ a.cchip:hover { border-color: var(--core); }
         <div class="id">
         <p class="eyebrow"><span class="en">About me</span><span class="zh">关于我</span><span class="ja">私について</span></p>
         <h1 class="name"><span class="en">Yuhei Yamada</span><span class="zh">山田 Yuhei</span><span class="ja">山田 Yuhei</span></h1>
-        <p class="role"><span class="en">Founder, Asia Shokusan Inc.<br>Co-founder, Director &amp; COO, BKU CO.,LTD.</span><span class="zh">Asia Shokusan Inc. 创始人<br>BKU CO.,LTD. 联合创始人、董事兼 COO</span><span class="ja">Asia Shokusan Inc. 創業者<br>BKU CO.,LTD. 共同創業者・取締役・COO</span></p>
+        <p class="role"><span class="en">Founder, Asia Shokusan Inc.</span><span class="zh">亚洲殖产株式会社 创始人</span><span class="ja">アジア殖産株式会社 創業者</span></p>
         <div class="tags">
           <span class="tag"><span class="en">Japanese · native</span><span class="zh">日语 · 母语</span><span class="ja">日本語 · 母語</span></span>
           <span class="tag"><span class="en">English · business</span><span class="zh">英语 · 商务</span><span class="ja">英語 · ビジネス</span></span>
@@ -200,7 +205,7 @@ a.cchip:hover { border-color: var(--core); }
         <li><span class="y">2016</span><p><span class="en">Worked one year in the US at DENSO Manufacturing Michigan. Five years as an engineer in Japan and the US.</span><span class="zh">在美国 DENSO Manufacturing Michigan 工作一年。在日本和美国做了五年工程师。</span><span class="ja">米国 DENSO Manufacturing Michigan で1年勤務。日米で5年、エンジニアとして働く。</span></p></li>
         <li><span class="y">2017</span><p><span class="en">Moved to Myanmar. Co-founded BKU CO.,LTD. in Yangon. HR and education business. We teach Japanese and Japanese culture to workers at our school, then send them to Japan. Still running today.</span><span class="zh">来到缅甸。在仰光共同创立 BKU CO.,LTD.，从事人力资源和教育行业。在自己的学校教授日语和日本文化，然后把人才送往日本。至今仍在继续。</span><span class="ja">ミャンマーへ。ヤンゴンで BKU CO.,LTD. を共同創業。人材・教育事業。自社の学校で日本語と日本文化を教え、日本へ送り出す。現在も継続中。</span></p></li>
         <li><span class="y">2024</span><p><span class="en">Moved to Bangkok. Started trading.</span><span class="zh">来到曼谷。开始做贸易。</span><span class="ja">バンコクへ。貿易を始める。</span></p></li>
-        <li class="now"><span class="y"><span class="en">Now</span><span class="zh">现在</span><span class="ja">現在</span></span><p><span class="en">Founded Asia Shokusan Inc. I lead marketing, strategy and new business.</span><span class="zh">创立 Asia Shokusan Inc.。负责营销、战略和新业务。</span><span class="ja">Asia Shokusan Inc. を創業。マーケティング・戦略・新規事業を率いる。</span></p></li>
+        <li class="now"><span class="y"><span class="en">Now</span><span class="zh">现在</span><span class="ja">現在</span></span><p><span class="en">Founded Asia Shokusan Inc. I lead marketing, strategy and new business.</span><span class="zh">创立亚洲殖产株式会社。负责营销、战略和新业务。</span><span class="ja">アジア殖産株式会社を創業。マーケティング・戦略・新規事業を率いる。</span></p></li>
       </ol>
       </div>
     </div>

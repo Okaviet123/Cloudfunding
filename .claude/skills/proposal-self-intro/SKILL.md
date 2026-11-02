@@ -10,7 +10,7 @@ Yuhei sends bilingual/trilingual (EN · 中文 · 日本語) proposal artifacts 
 ## Source of truth
 
 - `05_sales/profile/self-introduction.html` — the standalone page (published at https://claude.ai/artifact/BWYL4zkvcMcgh8SxzjxdRP). Sections `#person`, `#silk-road`, `#connect`; portable CSS between `/* embed:start */` and `/* embed:end */`.
-- `05_sales/profile/img/` — `yuhei.jpg`, `qr-wechat.png`, `qr-line.png`, `qr-whatsapp.png`. Each QR is wrapped in a link to its decoded https URL so phone viewers can tap it.
+- `05_sales/profile/img/` — `yuhei.jpg`, `qr-wechat.png`, `qr-line.png`, `qr-whatsapp.png`, and the provisional company logo `logo-asiashokusan.png` (black artwork on transparent; shown in the top bar as `<img class="logo">`, inverted in the dark theme). Each QR is wrapped in a link to its decoded https URL so phone viewers can tap it.
 
 Edit the standalone page first, then re-embed. Never fork the copy inside a proposal: the next re-sync would overwrite it, and the two would drift apart.
 
@@ -61,13 +61,16 @@ Edit the standalone page first, then re-embed. Never fork the copy inside a prop
    files: {"img/yuhei.jpg": "05_sales/profile/img/yuhei.jpg",
            "img/qr-wechat.png": "05_sales/profile/img/qr-wechat.png",
            "img/qr-line.png": "05_sales/profile/img/qr-line.png",
-           "img/qr-whatsapp.png": "05_sales/profile/img/qr-whatsapp.png"}
+           "img/qr-whatsapp.png": "05_sales/profile/img/qr-whatsapp.png",
+           "img/logo-asiashokusan.png": "05_sales/profile/img/logo-asiashokusan.png"}
    ```
    The proposal's own images stay, because files left out of a publish are kept.
 
 7. **Report in Japanese business keigo.** Give the link, a numbered flow table (section → role, new sections marked 【新規】), what you adjusted at the seams, and the points to confirm. Remind the user that the artifact is private until they share it.
 
 ## Copy rules (learned from Yuhei's edits)
+
+- **Brand.** The company is Asia Shokusan Inc. / アジア殖産株式会社 / 亚洲殖产株式会社. Do not brand pages with BKU: no "ASIA SHOKUSAN · BKU" in the top bar or footer, no BKU title in the role line. Replace a proposal's text brand in the top bar with the logo image and its footer brand with the trilingual company name. BKU appears only as history in the 2017 career entry.
 
 - **Plain and strong.** Write junior-high-school English: short sentences and simple verbs. Asian-business directness, not Western corporate phrasing. Use "Let's go far together!", not "I am looking for partners who want to go the distance".
 - **"SilkRoad 2040"** is one word plus the year. It is a proper noun and keeps that form in every language (日本語 too: 「SilkRoad 2040」).
